@@ -43,6 +43,20 @@
         }
 
         /* ===================================
+           TOP BANNER
+        =================================== */
+        .top-banner {
+            background-color: #5A4635;
+            color: white;
+            text-align: center;
+            padding: clamp(10px, 1.5vh, 15px) clamp(20px, 3vw, 40px);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(14px, 1.5vw, 18px);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ===================================
            HERO SECTION
         =================================== */
         .hero {
@@ -108,20 +122,25 @@
             filter: drop-shadow(0 0 20px rgba(92, 74, 62, 0.1));
         }
 
-        /* Logo in bottom-right corner */
-        .logo {
+        /* Logo container in bottom-right corner */
+        .footer-logos {
             position: absolute;
             bottom: clamp(40px, 6vh, 80px);
             right: clamp(40px, 5vw, 80px);
-            width: clamp(120px, 15vw, 200px);
-            height: auto;
+            display: flex;
+            align-items: center;
+            gap: clamp(15px, 2vw, 25px);
             z-index: 10;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
         }
 
-        .logo:hover {
-            opacity: 1;
+        .logo {
+            width: clamp(150px, 18vw, 250px);
+            height: auto;
+        }
+
+        .logo-erc {
+            width: clamp(100px, 12vw, 160px);
+            height: auto;
         }
 
         /* Footer positioning context for logo */
@@ -445,15 +464,55 @@
         }
 
         /* ===================================
+           BLOG SECTION
+        =================================== */
+        .blog {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .blog::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            width: clamp(300px, 40vw, 550px);
+            height: clamp(300px, 40vw, 550px);
+            background-image: url('583028561_836072439171115_2027528368502886329_n.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+
+        .blog-content {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(20px, 2.2vw, 28px);
+            line-height: 1.6;
+            font-weight: 400;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: clamp(40px, 6vh, 80px) 0;
+            color: #5C4A3E;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        /* ===================================
            FOOTER
         =================================== */
         footer {
             position: relative;
-            padding: clamp(40px, 7vh, 70px) clamp(25px, 4vw, 60px);
+            padding: clamp(80px, 12vh, 150px) clamp(25px, 4vw, 60px);
             text-align: center;
             font-size: clamp(13px, 1.3vw, 15px);
             line-height: 1.65;
-            opacity: 0.65;
             background: rgba(92, 74, 62, 0.02);
             border-top: 1px solid rgba(92, 74, 62, 0.1);
         }
@@ -568,6 +627,11 @@
     </style>
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        This website is under construction. More content coming soon!
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <!-- Explore button in top-right -->
@@ -677,11 +741,24 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section class="blog">
+        <div class="container">
+            <div class="section-title">Blog</div>
+            <div class="blog-content">
+                Coming Soon
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
-            <!-- UvA Logo in bottom-right corner of footer -->
-            <img src="logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+            <!-- Logos in bottom-right corner of footer -->
+            <div class="footer-logos">
+                <img src="LOGO_ERC-FLAG_EU-no text.png" alt="ERC European Research Council Logo" class="logo-erc">
+                <img src="logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+            </div>
         </div>
     </footer>
 </body>
