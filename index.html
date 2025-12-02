@@ -561,20 +561,39 @@
 }
 
 .footer-logos {
-    align-items: flex-start;
+    position: absolute;
+    bottom: clamp(40px, 6vh, 80px);
+    right: clamp(40px, 5vw, 80px);
+
+    display: flex;
+    flex-direction: row;       /* ⬅️ all in one horizontal line */
+    align-items: flex-start;   /* ⬅️ aligns logos + text to the top */
+    gap: clamp(15px, 2vw, 25px);
+    z-index: 10;
 }
 
+.funding-text {
+    max-width: 400px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.45;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
+    opacity: 0.9;
+}
+
+/* Mobile: stack vertically so it doesn't overflow */
 @media (max-width: 768px) {
     .footer-logos {
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .funding-text {
         max-width: 100%;
-        margin-top: 15px;
     }
+}
 }
 
         /* ===================================
