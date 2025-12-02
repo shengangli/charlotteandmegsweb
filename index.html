@@ -528,6 +528,32 @@
             opacity: 0.8;
         }
 
+        .funding-text {
+    max-width: 350px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.45;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.9;
+}
+
+.footer-logos {
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .footer-logos {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .funding-text {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+}
+
         /* ===================================
            RESPONSIVE BREAKPOINTS
         =================================== */
@@ -758,6 +784,13 @@
             <div class="footer-logos">
                 <img src="LOGO_ERC-FLAG_EU-no text.png" alt="ERC European Research Council Logo" class="logo-erc">
                 <img src="logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+            <div class="funding-text">
+                Funded by the European Union. Views and opinions expressed are however those of the 
+                author(s) only and do not necessarily reflect those of the European Union or the 
+                European Research Council Executive Agency. Neither the European Union nor the 
+                granting authority can be held responsible for them. This work is supported by 
+                ERC grant DATAGOV, Grant No. 101142006.
+                </div>
             </div>
         </div>
     </footer>
