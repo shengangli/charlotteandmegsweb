@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>DATAGOV Blog</title>
+    <title>Title of the blog post | DATAGOV</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             background-color: #f1c232;
@@ -18,9 +20,30 @@
             margin: 0 auto;
         }
 
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 15px;
+            margin-bottom: 35px;
+            opacity: 0.85;
+        }
+
+        .breadcrumb a {
+            color: #5C4A3E;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 6px;
+        }
+
+        /* Blog header */
         .blog-header {
-            margin-bottom: 50px;
             text-align: center;
+            margin-bottom: 60px;
         }
 
         .blog-header h1 {
@@ -32,22 +55,39 @@
         .blog-header p {
             font-size: 18px;
             opacity: 0.85;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
+        /* Post content */
         .post-content h2 {
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
-        a {
-            color: #5C4A3E;
+        .post-content .meta {
+            font-size: 15px;
+            opacity: 0.75;
+            margin-bottom: 30px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
 <div class="post">
+
+    <!-- Breadcrumb navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span>Blog</span>
+        <span>/</span>
+        <span>Title of the blog post</span>
+    </nav>
 
     <!-- Blog header -->
     <div class="blog-header">
@@ -57,13 +97,19 @@
         </p>
     </div>
 
-    <!-- Blog post content -->
+    <!-- Blog post -->
     <div class="post-content">
         <h2>Title of the blog post</h2>
-        <p><em>date of publication · name of writer · hashtag</em></p>
+        <div class="meta">
+            date of publication · name of writer · hashtag
+        </div>
 
         <p>
             This is where the main text of the blog post goes.
+        </p>
+
+        <p>
+            Additional paragraphs go here.
         </p>
     </div>
 
