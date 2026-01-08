@@ -534,6 +534,51 @@
             opacity: 0.7;
             font-style: italic;
         }
+        /* ===================================
+           BLOG LIST STRUCTURE
+        =================================== */
+        
+        .blog-list {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .blog-item {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 25px 0;
+            border-top: 1px solid rgba(92, 74, 62, 0.2);
+        }
+        
+        .blog-item:last-child {
+            border-bottom: 1px solid rgba(92, 74, 62, 0.2);
+        }
+        
+        .blog-meta {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: left;
+            opacity: 0.8;
+        }
+        
+        .blog-title a {
+            font-size: clamp(22px, 2.5vw, 30px);
+            color: #5C4A3E;
+            text-decoration: none;
+        }
+        
+        .blog-title a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .blog-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
 
         /* ===================================
            FOOTER
@@ -821,8 +866,66 @@
     <section class="blog">
         <div class="container">
             <div class="section-title">Blog</div>
-            <div class="blog-content">
-                Coming Soon
+            <div class="blog-list">
+                <!-- Blog item 1 -->
+                <div class="blog-item">
+                    <div class="blog-meta">
+                        <div>date of publication</div>
+                        <div>name of writer</div>
+                        <div>hashtag</div>
+                    </div>
+                    <div class="blog-title">
+                        <a href="blog/post-1.html">Title of the blog post</a>
+                    </div>
+                </div>
+            
+                <!-- Blog item 2 -->
+                <div class="blog-item">
+                    <div class="blog-meta">
+                        <div>date of publication</div>
+                        <div>name of writer</div>
+                        <div>hashtag</div>
+                    </div>
+                    <div class="blog-title">
+                        <a href="blog/post-2.html">Title of the blog post</a>
+                    </div>
+                </div>
+            
+                <!-- Blog item 3 -->
+                <div class="blog-item">
+                    <div class="blog-meta">
+                        <div>date of publication</div>
+                        <div>name of writer</div>
+                        <div>hashtag</div>
+                    </div>
+                    <div class="blog-title">
+                        <a href="blog/post-3.html">Title of the blog post</a>
+                    </div>
+                </div>
+            
+                <!-- Blog item 4 -->
+                <div class="blog-item">
+                    <div class="blog-meta">
+                        <div>date of publication</div>
+                        <div>name of writer</div>
+                        <div>hashtag</div>
+                    </div>
+                    <div class="blog-title">
+                        <a href="blog/post-4.html">Title of the blog post</a>
+                    </div>
+                </div>
+            
+                <!-- Blog item 5 -->
+                <div class="blog-item">
+                    <div class="blog-meta">
+                        <div>date of publication</div>
+                        <div>name of writer</div>
+                        <div>hashtag</div>
+                    </div>
+                    <div class="blog-title">
+                        <a href="blog/post-5.html">Title of the blog post</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
