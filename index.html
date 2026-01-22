@@ -4,38 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Governance by Data Infrastructure</title>
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-/* ===============================
-   RESET & BASE
-================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ===================================
+   NAVIGATION BAR
+=================================== */
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: #f1c232;
-    color: #5C4A3E;
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    line-height: 1.7;
-    overflow-x: hidden;
-}
-
-/* ===============================
-   NAVIGATION
-================================ */
 .site-header {
     position: fixed;
     top: 0;
@@ -49,20 +25,13 @@ body {
     margin: 0 auto;
     padding: 12px clamp(25px, 4vw, 60px);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .nav-logo img {
     height: 45px;
     width: auto;
-}
-
-/* 🔒 LOGO CANNOT BE CLICKED */
-.nav-logo,
-.nav-logo img {
-    pointer-events: none;
-    cursor: default;
 }
 
 .main-nav {
@@ -73,179 +42,710 @@ body {
 .main-nav a {
     color: white;
     text-decoration: none;
+    font-family: 'Oswald', sans-serif;
     font-size: 18px;
+    font-weight: 400;
 }
 
 .main-nav a:hover {
     opacity: 0.8;
 }
 
-/* ===============================
-   LAYOUT
-================================ */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: clamp(25px, 4vw, 60px);
-    padding-right: clamp(25px, 4vw, 60px);
+        /* ===================================
+           RESET & BASE STYLES
+        =================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f1c232;
+            color: #5C4A3E;
+            font-family: 'Oswald', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 18px;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ===================================
+           LAYOUT SYSTEM
+        =================================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: clamp(25px, 4vw, 60px);
+            padding-right: clamp(25px, 4vw, 60px);
+        }
+
+        /* ===================================
+           TOP BANNER
+        =================================== */
+        .top-banner {
+            background-color: #5A4635;
+            color: white;
+            text-align: center;
+            padding: clamp(10px, 1.5vh, 15px) clamp(20px, 3vw, 40px);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(14px, 1.5vw, 18px);
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* ===================================
+           HERO SECTION
+        =================================== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .explore-btn {
+            position: absolute;
+            top: clamp(40px, 6vh, 80px);
+            right: clamp(40px, 5vw, 80px);
+            background-color: #5A4635;
+            color: white;
+            padding: clamp(4px, 0.8vh, 8px) clamp(10px, 1.5vw, 16px);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(20px, 2.2vw, 30px);
+            font-weight: 400;
+            text-transform: capitalize;
+            letter-spacing: 0px;
+            border-radius: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: none;
+            z-index: 10;
+        }
+
+        .explore-btn:hover {
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            padding: 0 clamp(20px, 5vw, 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fingerprint {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(400px, 48vw, 650px);
+            height: clamp(400px, 48vw, 650px);
+            opacity: 0.12;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .fingerprint img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(92, 74, 62, 0.1));
+        }
+
+        /* Logo container in bottom-right corner */
+        .footer-logos {
+            position: absolute;
+            bottom: clamp(40px, 6vh, 80px);
+            right: clamp(40px, 5vw, 80px);
+
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            gap: clamp(15px, 2vw, 25px);
+
+            white-space: normal;         /* allow text line breaks */
+            flex-wrap: nowrap;           /* ⬅️ prevent stacking */
+            max-width: 60vw;             /* ⬅️ give it horizontal space */
+            z-index: 10;
+        }
+
+        .funding-text {
+            flex: 1;                     /* ⬅️ Forces the text to take available space */
+            min-width: 250px;            /* ⬅️ Prevents collapse */
+            max-width: 500px;
+            text-align: left;
+            font-size: clamp(11px, 1vw, 13px);
+            line-height: 1.45;
+            color: #5C4A3E;
+            font-family: 'Oswald', sans-serif;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .footer-logos {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .funding-text {
+                max-width: 100%;
+            }
+        }
+
+
+        .logo {
+            width: clamp(150px, 18vw, 250px);
+            height: auto;
+        }
+
+        .logo-erc {
+            width: clamp(100px, 12vw, 160px);
+            height: auto;
+        }
+
+        /* Footer positioning context for logo */
+        footer {
+            position: relative;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            text-align: center;
 }
 
-section {
-    padding: clamp(40px, 7vh, 70px) 0;
-}
+        /* ===================================
+           TYPOGRAPHY
+        =================================== */
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(50px, 7.5vw, 110px);
+            line-height: 0.95;
+            letter-spacing: 3px;
+            font-weight: 400;
+            margin-bottom: clamp(30px, 4vh, 50px);
+            margin-top: clamp(40px, 6vh, 80px);
+            max-width: 850px;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.02);
+        }
 
-/* ===============================
-   HERO
-================================ */
-.hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+        /* ===================================
+           KEYWORDS LAYOUT
+        =================================== */
+        .keywords {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 0 clamp(20px, 4vw, 60px);
+            position: relative;
+            z-index: 2;
+        }
 
-.hero-text {
-    text-align: center;
-    z-index: 2;
-}
+        .keywords-left,
+        .keywords-right {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(15px, 2vh, 25px);
+        }
 
-h1 {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(50px, 7.5vw, 110px);
-    letter-spacing: 3px;
-    margin-bottom: 40px;
-}
+        .keywords-left {
+            align-items: flex-start;
+            text-align: left;
+        }
 
-/* ===============================
-   KEYWORDS
-================================ */
-.keywords {
-    display: flex;
-    justify-content: space-between;
-    max-width: 950px;
-    margin: 0 auto;
-}
+        .keywords-right {
+            align-items: flex-end;
+            text-align: right;
+        }
 
-.keyword {
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 7px 14px;
-    background: rgba(92, 74, 62, 0.05);
-}
+        .keyword {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(17px, 1.8vw, 23px);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            padding: 7px 14px;
+            background: rgba(92, 74, 62, 0.05);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
 
-/* ===============================
-   SECTION TITLES
-================================ */
-.section-title {
-    background-color: #5A4635;
+        .keyword:hover {
+            background: rgba(92, 74, 62, 0.1);
+            transform: translateX(4px);
+        }
+
+        .keywords-right .keyword:hover {
+            transform: translateX(-4px);
+        }
+
+        /* ===================================
+           CONTENT SECTIONS
+        =================================== */
+        section {
+            padding: clamp(40px, 7vh, 70px) 0;
+        }
+
+        section:not(.hero) {
+            margin-top: 0;
+        }
+
+        .description {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+
+        .description p {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(17px, 1.8vw, 20px);
+            line-height: 1.6;
+            margin-bottom: clamp(18px, 2.5vh, 24px);
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .description strong {
+            font-weight: 600;
+            color: #4A3A2E;
+        }
+
+        /* ===================================
+           SECTION TITLES
+        =================================== */
+        .section-title {
+            background-color: #5A4635;
+            color: white;
+            display: inline-block;
+            padding: clamp(6px, 1vh, 10px) clamp(12px, 2vw, 20px);
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(26px, 3vw, 40px);
+            font-weight: 400;
+            margin-bottom: clamp(35px, 5vh, 55px);
+            text-transform: capitalize;
+            letter-spacing: 0px;
+            box-shadow: none;
+            border-radius: 0;
+            text-align: center;
+        }
+
+        /* ===================================
+           WHO ARE WE SECTION
+        =================================== */
+        .who-are-we {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .who-are-we::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -10%;
+            width: clamp(300px, 40vw, 550px);
+            height: clamp(300px, 40vw, 550px);
+            background-image: url('583028561_836072439171115_2027528368502886329_n.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(-15deg);
+        }
+
+        .who-are-we-content {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(17px, 1.8vw, 20px);
+            line-height: 1.6;
+            font-weight: 400;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .who-are-we-content p {
+            margin-bottom: clamp(18px, 2.5vh, 24px);
+            text-align: center;
+        }
+
+        .who-are-we-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .who-are-we-content strong {
+            font-weight: 600;
+            color: #4A3A2E;
+        }
+
+        /* ===================================
+           TEAM SECTION
+        =================================== */
+        .team {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .team::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: clamp(300px, 40vw, 550px);
+            height: clamp(300px, 40vw, 550px);
+            background-image: url('583028561_836072439171115_2027528368502886329_n.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(15deg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(18px, 3vh, 30px) clamp(50px, 7vw, 100px);
+            margin-top: clamp(35px, 5vh, 55px);
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-member {
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            transition: none;
+            border: none;
+        }
+
+        .team-member:hover {
+            background: transparent;
+            border-color: transparent;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .team-member h3 {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 400;
+            margin-bottom: 0;
+            color: #5C4A3E;
+            line-height: 1.4;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .team-member p {
+            display: none;
+        }
+
+         /* ===================================
+           RESEARCH ASSOCIATE SECTION
+        =================================== */
+        .researchaffiliate {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .researchaffiliate::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: clamp(300px, 40vw, 550px);
+            height: clamp(300px, 40vw, 550px);
+            background-image: url('583028561_836072439171115_2027528368502886329_n.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+            transform: translateY(-50%) rotate(15deg);
+        }
+
+        .researchaffiliate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(18px, 3vh, 30px) clamp(50px, 7vw, 100px);
+            margin-top: clamp(35px, 5vh, 55px);
+            text-align: center;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .researchaffiliate-member {
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
+            transition: none;
+            border: none;
+        }
+
+        .researchaffiliate-member:hover {
+            background: transparent;
+            border-color: transparent;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .researchaffiliate-member h3 {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 400;
+            margin-bottom: 0;
+            color: #5C4A3E;
+            line-height: 1.4;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .researchaffiliate-member p {
+            display: none;
+        }
+
+/* ===================================
+   TOP BANNER LINK
+=================================== */
+.top-banner a.banner-link {
     color: white;
-    display: inline-block;
-    padding: 8px 18px;
-    font-size: clamp(26px, 3vw, 40px);
-    margin-bottom: 40px;
-}
-
-/* ===============================
-   TEAM
-================================ */
-.team {
-    text-align: center;
-}
-
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px 80px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.team-member h3 {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.team a {
-    color: #6b4a2b;
-    text-decoration: none;
-}
-
-.team a:hover {
     text-decoration: underline;
-}
-
-/* ===============================
-   RESEARCH ASSOCIATE
-================================ */
-.researchaffiliate {
-    text-align: center;
-}
-
-.researchaffiliate-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-}
-
-/* ✅ FIX: clean single-line name */
-.researchaffiliate-member h3 {
-    font-size: 20px;
+    margin-left: 8px;
     font-weight: 400;
-    white-space: nowrap;
 }
 
-/* ===============================
-   FOOTER
-================================ */
-footer {
-    padding: 100px 40px;
-    text-align: center;
-    border-top: 1px solid rgba(92, 74, 62, 0.1);
+.top-banner a.banner-link:hover {
+    opacity: 0.85;
+}
+
+        /* ===================================
+           FOOTER
+        =================================== */
+        footer {
+            position: relative;
+            padding: clamp(80px, 12vh, 150px) clamp(25px, 4vw, 60px);
+            text-align: center;
+            font-size: clamp(13px, 1.3vw, 15px);
+            line-height: 1.65;
+            background: rgba(92, 74, 62, 0.02);
+            border-top: 1px solid rgba(92, 74, 62, 0.1);
+        }
+
+        footer p {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p + p {
+            margin-top: 15px;
+            font-weight: 600;
+            opacity: 0.8;
+        }
+
+        .funding-text {
+    max-width: 350px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.45;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.9;
 }
 
 .footer-logos {
+    position: absolute;
+    bottom: clamp(40px, 6vh, 80px);
+    right: clamp(40px, 5vw, 80px);
+
     display: flex;
-    gap: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: row;       /* ⬅️ all in one horizontal line */
+    align-items: flex-start;   /* ⬅️ aligns logos + text to the top */
+    gap: clamp(15px, 2vw, 25px);
+    z-index: 10;
 }
 
 .funding-text {
     max-width: 400px;
-    font-size: 13px;
+    font-size: clamp(11px, 1vw, 13px);
+    line-height: 1.45;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
     text-align: left;
+    opacity: 0.9;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+/* Mobile: stack vertically so it doesn't overflow */
 @media (max-width: 768px) {
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .keywords {
+    .footer-logos {
         flex-direction: column;
-        gap: 20px;
+        align-items: flex-start;
+        text-align: left;
     }
+
+    .funding-text {
+        max-width: 100%;
+    }
+}
 }
 
-@media (max-width: 600px) {
-    .researchaffiliate-member h3 {
-        white-space: normal;
-    }
-}
+        /* ===================================
+           RESPONSIVE BREAKPOINTS
+        =================================== */
+        @media (max-width: 1200px) {
+            h1 {
+                max-width: 900px;
+            }
+
+            .keywords {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 0;
+            }
+
+            .keywords {
+                flex-direction: column;
+                align-items: center;
+                gap: 35px;
+            }
+
+            .keywords-left,
+            .keywords-right {
+                align-items: center;
+                text-align: center;
+            }
+
+            .keyword:hover {
+                transform: translateY(-3px);
+            }
+
+            .keywords-right .keyword:hover {
+                transform: translateY(-3px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .explore-btn {
+                padding: 14px 35px;
+                font-size: 14px;
+            }
+
+            .description p,
+            .who-are-we-content p,
+            .who-are-we-content {
+                text-align: center;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-member {
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero-content {
+                padding: 0 15px;
+            }
+
+            .keywords {
+                padding: 0 15px;
+            }
+
+            .keyword {
+                padding: 6px 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* ===================================
+           PRINT STYLES
+        =================================== */
+        @media print {
+            body {
+                background-color: white;
+            }
+
+            .explore-btn {
+                display: none;
+            }
+
+            .fingerprint {
+                opacity: 0.05;
+            }
+        }
+            /* =========================
+           Team links
+           ========================= */
+
+        .team a {
+            color: #6b4a2b; /* same brown as site */
+            text-decoration: none;
+        }
+
+        .team a:visited {
+            color: #6b4a2b;
+        }
+
+        .team a:hover {
+            text-decoration: underline;
+        }
+
     </style>
 </head>
-
 <body>
 
-<header class="site-header">
+     <!-- Header Section -->
+    <header class="site-header">
     <div class="nav-container">
-        <div class="nav-logo">
-            <img src="datagov_logo_temp.png" alt="Data Governance project logo">
-        </div>
+        <a href="index.html" class="nav-logo">
+            <img src="datagov_logo_temp.png"
+     alt="Data Governance project logo"
+     class="site-logo">
+        </a>
+
         <nav class="main-nav">
             <a href="blog.html">Blog</a>
             <a href="events.html">Events</a>
@@ -254,46 +754,150 @@ footer {
     </div>
 </header>
 
-<section class="hero">
-    <div class="hero-text">
-        <h1>GOVERNANCE BY DATA INFRASTRUCTURE</h1>
-    </div>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Fingerprint background image -->
+        <div class="fingerprint">
+            <img src="583028561_836072439171115_2027528368502886329_n.png" alt="Fingerprint">
+        </div>
 
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>GOVERNANCE BY DATA INFRASTRUCTURE</h1>
+                <div class="keywords">
+                    <div class="keywords-left">
+                        <div class="keyword">Citizenship</div>
+                        <div class="keyword">Sovereignty</div>
+                        <div class="keyword">Inequality</div>
+                    </div>
+                    <div class="keywords-right">
+                        <div class="keyword">Biometrics</div>
+                        <div class="keyword">Digital ID</div>
+                        <div class="keyword">Health & Education <br>Technology</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Description Section -->
+    <section id="description" class="description">
+        <div class="container">
+            <p> DATAGOV is an interdisciplinary research project examining <strong>GOVERNANCE BY DATA INFRASTRUCTURE</strong>; a concept explaining how societies are increasingly 
+                governed through the data they generate. We focus on <strong>biometrics</strong>, <strong>digital identity</strong>, and <strong>health and education technologies</strong>, with 
+                the aim to investigate how these technologies and infrastructures reshape <strong>sovereignty</strong>, <strong>citizenship</strong>, and
+                <strong>inequality</strong>. DATAGOV aims to re-imagine and support more just and accountable data futures through our qualitative research on social and data lives of 
+                ordinary people in <strong>Brazil</strong>, <strong>EU</strong>, <strong>South Africa</strong>, and <strong>India</strong>
+            </p>
+        </div>
+    </section>
+
+    <!-- Who Are We Section -->
+    <section class="who-are-we">
+        <div class="container">
+            <div class="section-title">Who are we?</div>
+            <div class="who-are-we-content">
+                <p>
+                   DATAGOV is a research collective exploring the intersections of data infrastructure, governance, and democratic participation in the digital age.
+                    Together, we form a collaborative lab committed to studying how data infrastructures shape democratic life. Our work is designed to share knowledge,
+                    co-create new insights, and contribute to debates and practices beyond the academic world.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
 <section class="team">
     <div class="container">
         <h2 class="section-title">The Team</h2>
-        <div class="team-grid">
-            <div class="team-member"><h3><a href="team/matteo-bard.html">Mattéo Bard</a></h3></div>
-            <div class="team-member"><h3><a href="team/jonas-breuer.html">Jonas Breuer</a></h3></div>
-            <div class="team-member"><h3><a href="team/federico-bonelli.html">Federico Bonelli</a></h3></div>
-            <div class="team-member"><h3><a href="team/giulia-campaioli.html">Giulia Campaioli</a></h3></div>
-            <div class="team-member"><h3><a href="team/meg-kitamura.html">Meg Kitamura</a></h3></div>
-            <div class="team-member"><h3><a href="team/stefania-milan.html">Stefania Milan</a></h3></div>
-            <div class="team-member"><h3><a href="team/carina-nasser.html">Carina Nasser</a></h3></div>
-            <div class="team-member"><h3><a href="team/sruthi-vanguri.html">Sruthi Vanguri</a></h3></div>
-        </div>
-    </div>
-</section>
 
-<section class="researchaffiliate">
-    <div class="container">
-        <h2 class="section-title">Research Associate</h2>
-        <div class="researchaffiliate-grid">
-            <div class="researchaffiliate-member">
-                <h3>Tiago Alexandre Ferraz Vieira</h3>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>
+                    <a href="team/matteo-bard.html">Mattéo Bard</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/jonas-breuer.html">Jonas Breuer</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/federico-bonelli.html">Federico Bonelli</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/giulia-campaioli.html">Giulia Campaioli</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/meg-kitamura.html">Meg Kitamura</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/stefania-milan.html">Stefania Milan</a>
+                </h3>
+                <p>Add later</p>
+                <p>Add later</p>
+            </div>
+
+            <div class="team-member">
+                <h3>
+                    <a href="team/carina-n
+
+
+     <!-- Research Affiliate Section -->
+    <section class="researchaffiliate">
+        <div class="container">
+            <div class="section-title">Research Associate</div>
+            <div class="researchaffiliate-grid">
+                <div class="researchaffiliate-member">
+                    <h3>Tiago Alexandre Ferraz Vieira</h3>
+                    <p>Add later<br>Add later</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Footer -->
 <footer>
-    <div class="footer-logos">
-        <img src="logo-UvA.svg" alt="University of Amsterdam Logo">
-        <img src="LOGO_ERC-FLAG_EU-no text.png" alt="ERC Logo">
-        <div class="funding-text">
-            Funded by the European Union. Views and opinions expressed are however those of the author(s)
-            only and do not necessarily reflect those of the European Union or the ERC Executive Agency.
+    <div class="container">
+        <div class="footer-logos">
+
+            <!-- UvA logo FIRST -->
+            <img src="logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+
+            <!-- ERC logo SECOND -->
+            <img src="LOGO_ERC-FLAG_EU-no text.png" alt="ERC European Research Council Logo" class="logo-erc">
+
+            <!-- Funding text LEFT-ALIGNED -->
+            <div class="funding-text">
+                Funded by the European Union. Views and opinions expressed are however those of the 
+                author(s) only and do not necessarily reflect those of the European Union or the 
+                European Research Council Executive Agency. Neither the European Union nor the 
+                granting authority can be held responsible for them. This work is supported by 
+                ERC grant DATAGOV, Grant No. 101142006.
+            </div>
+
         </div>
     </div>
 </footer>
