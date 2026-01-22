@@ -1,17 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blog – DATAGOV</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Governance by Data Infrastructure</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1c232;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* ===============================
+   NAVIGATION (same as main page)
+================================ */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #5A4635;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px clamp(25px, 4vw, 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.main-nav a:hover {
+    opacity: 0.8;
+}
+
+/* ===============================
+   LAYOUT
+================================ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: clamp(25px, 4vw, 60px);
+    padding-right: clamp(25px, 4vw, 60px);
+}
+
+/* ===============================
+   BLOG PAGE
+================================ */
+.blog-page {
+    padding-top: 140px; /* clears fixed nav */
+}
+
+.blog-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.blog-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.blog-intro {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+.blog-entry {
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.blog-entry h2 {
+    font-size: 26px;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.blog-entry h2 a {
+    color: #5C4A3E;
+    text-decoration: none;
+}
+
+.blog-entry h2 a:hover {
+    text-decoration: underline;
+}
+
+.blog-meta {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.blog-excerpt {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ===============================
+   FOOTER (same as main page)
+================================ */
+footer {
+    position: relative;
+    padding: 120px clamp(25px, 4vw, 60px);
+    border-top: 1px solid rgba(92, 74, 62, 0.1);
+}
+
+.footer-logos {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo-erc {
+    width: 140px;
+}
+
+.funding-text {
+    max-width: 400px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .blog-entry {
+        margin-bottom: 40px;
+    }
+
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
+<!-- Header -->
 <header class="site-header">
     <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-            <img src="logo-UvA.svg" alt="DATAGOV logo">
-        </a>
+        <div class="nav-logo">DATAGOV</div>
         <nav class="main-nav">
             <a href="blog.html">Blog</a>
             <a href="events.html">Events</a>
@@ -20,18 +200,63 @@
     </div>
 </header>
 
-<main style="padding-top:120px">
-    <section class="blog">
-        <div class="container">
-            <div class="section-title">Blog</div>
+<!-- Blog Page -->
+<main class="blog-page">
 
-            <div class="blog-list">
-                <!-- reuse your blog-item blocks here -->
-            </div>
+    <section class="blog-header">
+        <div class="container">
+            <h1>Blog</h1>
+            <p class="blog-intro">
+                Research notes, essays, and project updates from the DATAGOV collective.
+            </p>
         </div>
     </section>
+
+    <section class="blog-list">
+        <div class="container">
+
+            <article class="blog-entry">
+                <h2>
+                    <a href="blog/example-post.html">
+                        Governing Through Data Infrastructure
+                    </a>
+                </h2>
+                <p class="blog-meta">March 2026 · Meg Kitamura</p>
+                <p class="blog-excerpt">
+                    How biometric and digital ID systems reshape governance,
+                    accountability, and everyday life.
+                </p>
+            </article>
+
+            <article class="blog-entry">
+                <h2>
+                    <a href="blog/example-post-2.html">
+                        Mapping the Hyper-Sensorized Society
+                    </a>
+                </h2>
+                <p class="blog-meta">February 2026 · DATAGOV Team</p>
+                <p class="blog-excerpt">
+                    Reflections on infrastructure, mapping, and the politics of
+                    visibility in contemporary surveillance systems.
+                </p>
+            </article>
+
+        </div>
+    </section>
+
 </main>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logos">
+        <img src="logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+        <img src="LOGO_ERC-FLAG_EU-no text.png" alt="ERC Logo" class="logo-erc">
+        <div class="funding-text">
+            Funded by the European Union. Views and opinions expressed are however those of the
+            author(s) only and do not necessarily reflect those of the European Union or the ERC.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
-
