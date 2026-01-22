@@ -1,1 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DATAGOV Kickoff 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1c232;
+    color: #5C4A3E;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+/* ===============================
+   NAVIGATION (SAME AS INDEX)
+================================ */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #5A4635;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px clamp(25px, 4vw, 60px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.main-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.main-nav a:hover {
+    opacity: 0.8;
+}
+
+/* ===============================
+   PAGE LAYOUT
+================================ */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 160px 30px 120px;
+}
+
+/* ===============================
+   EVENT TITLE
+================================ */
+.event-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 6vw, 90px);
+    letter-spacing: 2px;
+    margin-bottom: 60px;
+}
+
+/* ===============================
+   EVENT HEADER (IMAGE + META)
+================================ */
+.event-header {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+/* Poster image (vertical) */
+.event-poster img {
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Event meta */
+.event-meta {
+    max-width: 420px;
+}
+
+.event-meta-item {
+    margin-bottom: 22px;
+}
+
+.event-meta-label {
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.event-meta-value {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+.event-meta a {
+    color: #6b4a2b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.event-meta a:hover {
+    text-decoration: underline;
+}
+
+/* ===============================
+   EVENT CONTENT
+================================ */
+.event-content {
+    max-width: 760px;
+}
+
+.event-content p {
+    margin-bottom: 26px;
+}
+
+.event-content strong {
+    font-weight: 600;
+}
+
+/* ===============================
+   FOOTER (SAME AS INDEX)
+================================ */
+footer {
+    padding: 120px clamp(25px, 4vw, 60px);
+    border-top: 1px solid rgba(92, 74, 62, 0.1);
+}
+
+.footer-logos {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 200px;
+}
+
+.logo-erc {
+    width: 140px;
+}
+
+.funding-text {
+    max-width: 400px;
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 900px) {
+    .event-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .event-meta {
+        max-width: 100%;
+    }
+
+    .event-content {
+        max-width: 100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="nav-container">
+        <div class="nav-logo">DATAGOV</div>
+        <nav class="main-nav">
+            <a href="../blog.html">Blog</a>
+            <a href="../events.html">Events</a>
+            <a href="../contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <h1 class="event-title">DATAGOV Kickoff 2026</h1>
+
+    <section class="event-header">
+
+        <div class="event-poster">
+            <img src="../images/datagov-kickoff-poster.jpg" alt="DATAGOV Kickoff Event Poster">
+        </div>
+
+        <div class="event-meta">
+
+            <div class="event-meta-item">
+                <div class="event-meta-label">Date</div>
+                <div class="event-meta-value">27 March 2026</div>
+            </div>
+
+            <div class="event-meta-item">
+                <div class="event-meta-label">Time</div>
+                <div class="event-meta-value">10:00–15:00</div>
+            </div>
+
+            <div class="event-meta-item">
+                <div class="event-meta-label">Location</div>
+                <div class="event-meta-value">
+                    Framer Framed<br>
+                    Oranje-Vrijstaatkade 71<br>
+                    1093 KS Amsterdam
+                </div>
+            </div>
+
+            <div class="event-meta-item">
+                <div class="event-meta-label">Registration</div>
+                <div class="event-meta-value">
+                    <a href="#" target="_blank">Register here</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="event-content">
+
+        <p>
+            On <strong>27 March 2026</strong> we invite you to the kick-off event of the
+            DATAGOV project in Amsterdam, hosted by the University of Amsterdam (UvA)
+            and partner venues.
+        </p>
+
+        <p>
+            <strong>DATAGOV</strong> investigates the impact and social costs of regulatory
+            data infrastructures: data-grabbing systems that actively shape the polity,
+            from monitoring and automated decision-making to mediating access to public
+            services, rights, and welfare. The project, funded by the European Research
+            Council (ERC), takes a comparative approach investigating the European Union,
+            Brazil, India, and South Africa, to examine how these infrastructures transform
+            governance and what they mean for the future of democracy in an era of
+            pervasive datafication.
+        </p>
+
+        <p>
+            To start with, our empirical focus is on four technology families: biometrics,
+            digital identity, and health and education technologies, and how these
+            reconfigure citizenship, sovereignty, and inequality.
+        </p>
+
+        <p>
+            Spread across two days, the kick-off will feature workshops, keynotes,
+            performances, and a borrel, bringing together a diverse group of participants
+            from academia, policymaking, industry, civil society, and the arts. The event
+            will also leave ample time for conversation, (net)working, and enjoying each
+            other’s company. All programming is free of charge.
+        </p>
+
+        <p>
+            While the program is still taking shape, and keynote speakers will be
+            announced soon, we already welcome sign ups through this form.
+        </p>
+
+        <p>
+            <strong>Dates and Locations</strong><br>
+            Friday, 27 March 2026 9:30–15:00<br>
+            (Framer Framed, Oranje-Vrijstaatkade 71, 1093 KS Amsterdam)
+        </p>
+
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-logos">
+        <img src="../logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+        <img src="../LOGO_ERC-FLAG_EU-no text.png" alt="ERC Logo" class="logo-erc">
+        <div class="funding-text">
+            Funded by the European Union. Views and opinions expressed are however those
+            of the author(s) only and do not necessarily reflect those of the European
+            Union or the ERC Executive Agency.
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
 
