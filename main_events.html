@@ -29,7 +29,7 @@ body {
 }
 
 /* ===============================
-   NAVIGATION (SAME AS INDEX)
+   NAVIGATION
 ================================ */
 .site-header {
     position: fixed;
@@ -52,7 +52,6 @@ body {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 32px;
     letter-spacing: 2px;
-    color: white;
 }
 
 .nav-logo a {
@@ -68,7 +67,6 @@ body {
 .main-nav a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
 }
 
 .main-nav a:hover {
@@ -84,14 +82,21 @@ main {
     padding: 160px 30px 120px;
 }
 
-/* ===============================
-   PAGE TITLE
-================================ */
 .page-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(52px, 6vw, 90px);
     letter-spacing: 2px;
-    margin-bottom: 70px;
+    margin-bottom: 80px;
+}
+
+/* ===============================
+   SECTION HEADERS
+================================ */
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 1.5px;
+    margin-bottom: 40px;
 }
 
 /* ===============================
@@ -100,58 +105,84 @@ main {
 .events-list {
     display: flex;
     flex-direction: column;
-    gap: 70px;
+    gap: 50px;
+    margin-bottom: 100px;
 }
 
+/* Event card */
 .event-item {
     display: grid;
-    grid-template-columns: 140px 1fr 220px;
+    grid-template-columns: 220px 1fr;
     gap: 40px;
-    align-items: start;
+    align-items: center;
+    padding: 25px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* Date block */
-.event-date {
-    font-size: 18px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.85;
+.event-item:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
 }
 
-/* Event content */
-.event-content h2 {
-    font-size: 26px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
-.event-location {
-    font-size: 16px;
-    opacity: 0.85;
-    margin-bottom: 15px;
-}
-
-/* Read more */
-.event-link {
-    font-size: 16px;
-    color: #6b4a2b;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.event-link:hover {
-    text-decoration: underline;
-}
-
-/* Event image */
+/* Image */
 .event-image img {
     width: 100%;
     height: auto;
     display: block;
 }
 
+/* Content */
+.event-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-date {
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.85;
+    margin-bottom: 6px;
+}
+
+.event-content h2 {
+    font-size: 26px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.event-location {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 14px;
+}
+
+.event-link {
+    font-size: 16px;
+    color: #6b4a2b;
+    text-decoration: none;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.event-link:hover {
+    text-decoration: underline;
+}
+
 /* ===============================
-   FOOTER (SAME AS INDEX)
+   PAST EVENTS (SUBTLE DIFFERENCE)
+================================ */
+.past .event-item {
+    opacity: 0.7;
+}
+
+.past .event-item:hover {
+    opacity: 1;
+}
+
+/* ===============================
+   FOOTER
 ================================ */
 footer {
     padding: 120px clamp(25px, 4vw, 60px);
@@ -163,6 +194,7 @@ footer {
     gap: 25px;
     justify-content: center;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .logo {
@@ -177,6 +209,7 @@ footer {
     max-width: 400px;
     font-size: 13px;
     line-height: 1.45;
+    text-align: center;
 }
 
 /* ===============================
@@ -185,6 +218,7 @@ footer {
 @media (max-width: 900px) {
     .event-item {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
 
     .event-image {
@@ -214,28 +248,52 @@ footer {
 
     <h1 class="page-title">Events</h1>
 
-    <section class="events-list">
-        <!-- Copy Event -->
-        <article class="event-item">
-            <div class="event-date">
-                26-27 March 2026
-            </div>
+    <!-- UPCOMING EVENTS -->
+    <section>
+        <h2 class="section-title">Upcoming Events</h2>
 
-            <div class="event-content">
-                <h2>DATAGOV Kickoff</h2>
-                <div class="event-location">
-                    Amsterdam
+        <div class="events-list">
+
+            <article class="event-item">
+                <div class="event-image">
+                    <img src="images/datagov_kickoff_2026.png" alt="DATAGOV Kickoff poster">
                 </div>
-                <a href="events/datagov_kickoff_2026.html" class="event-link">
-                    Read more →
-                </a>
-            </div>
 
-            <div class="event-image">
-                <img src="images/datagov_kickoff_2026.png" alt="Workshop image">
-            </div>
-        </article>
+                <div class="event-content">
+                    <div class="event-date">26–27 March 2026</div>
+                    <h2>DATAGOV Kickoff</h2>
+                    <div class="event-location">Amsterdam</div>
+                    <a href="events/datagov_kickoff_2026.html" class="event-link">
+                        Read more →
+                    </a>
+                </div>
+            </article>
 
+        </div>
+    </section>
+
+    <!-- PAST EVENTS -->
+    <section class="past">
+        <h2 class="section-title">Past Events</h2>
+
+        <div class="events-list">
+
+            <article class="event-item">
+                <div class="event-image">
+                    <img src="images/sample_past_event.png" alt="Past event poster">
+                </div>
+
+                <div class="event-content">
+                    <div class="event-date">12–13 June 2025</div>
+                    <h2>Data Infrastructures Workshop</h2>
+                    <div class="event-location">Berlin</div>
+                    <a href="#" class="event-link">
+                        Read more →
+                    </a>
+                </div>
+            </article>
+
+        </div>
     </section>
 
 </main>
@@ -254,3 +312,4 @@ footer {
 
 </body>
 </html>
+
