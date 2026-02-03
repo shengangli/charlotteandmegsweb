@@ -125,19 +125,16 @@ body {
 }
 
 /* ===============================
-   BLOG LIST STRUCTURE
+   BLOG LIST
 ================================ */
 .blog-list {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: left;
 }
 
 .blog-item {
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    gap: 40px;
-    padding: 25px 0;
+    padding: 30px 0;
     border-top: 1px solid rgba(92, 74, 62, 0.2);
 }
 
@@ -145,10 +142,8 @@ body {
     border-bottom: 1px solid rgba(92, 74, 62, 0.2);
 }
 
-.blog-meta {
-    font-size: 16px;
-    line-height: 1.6;
-    opacity: 0.8;
+.blog-title {
+    margin-bottom: 10px;
 }
 
 .blog-title a {
@@ -159,6 +154,16 @@ body {
 
 .blog-title a:hover {
     text-decoration: underline;
+}
+
+.blog-meta {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+.blog-meta div:not(:last-child) {
+    margin-bottom: 4px;
 }
 
 /* ===============================
@@ -196,11 +201,6 @@ footer {
    RESPONSIVE
 ================================ */
 @media (max-width: 768px) {
-    .blog-item {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-
     .footer-logos {
         flex-direction: column;
         align-items: flex-start;
@@ -229,8 +229,8 @@ footer {
 <!-- Blog Section -->
 <section class="blog">
     <div class="container">
+
         <div class="section-title">Blog</div>
-            <div class="coming-soon">DATAGOV blog coming soon</div>
 
         <div class="blog-content">
             Reflections, research notes, and project updates from the DATAGOV team.
@@ -239,16 +239,18 @@ footer {
         <div class="blog-list">
 
             <div class="blog-item">
-                <div class="blog-meta">
-                    <div>3 February 2026</div>
-                    <div>Mattéo Bard, Giulia Campaioli, Shruti Vanguri, </div>
-                    <div>#DigitalID #DigitalMethods #DataInfrastructure #NetworkAnalysis #PolicyAnalysis #DiscourseAnalysis</div>
-                </div>
                 <div class="blog-title">
                     <a href="blog/post-1.html">Dissecting Digital ID(ea)s</a>
                 </div>
+                <div class="blog-meta">
+                    <div>3 February 2026</div>
+                    <div>Mattéo Bard, Giulia Campaioli, Shruti Vanguri</div>
+                    <div>#DigitalID #DigitalMethods #DataInfrastructure #NetworkAnalysis #PolicyAnalysis #DiscourseAnalysis</div>
+                </div>
             </div>
+
         </div>
+
     </div>
 </section>
 
