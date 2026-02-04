@@ -25,7 +25,17 @@
             color: #5C4A3E;
             font-family: 'Oswald', sans-serif;
             line-height: 1.7;
-            padding: 160px 20px 120px;
+            padding-top: 160px;
+            padding-bottom: 120px;
+        }
+
+        /* ===============================
+           SHARED PAGE WIDTH
+        ================================ */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(25px, 4vw, 60px);
         }
 
         /* ===============================
@@ -132,6 +142,34 @@
 
         .post-content p {
             margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ===============================
+           IMAGE ROW
+        ================================ */
+        .post-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .post-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .post-content p {
+                text-align: left;
+            }
+
+            .post-images {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ===============================
@@ -183,30 +221,31 @@
     </div>
 </header>
 
-<!-- Post -->
-<div class="post">
+<!-- Page Content -->
+<div class="page-container">
+    <div class="post">
 
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <a href="../blog.html">Blog</a>
-        <span>/</span>
-        <span>Dissecting Digital ID(ea)s</span>
-    </nav>
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../blog.html">Blog</a>
+            <span>/</span>
+            <span>Dissecting Digital ID(ea)s</span>
+        </nav>
 
-    <!-- Blog header -->
-    <div class="blog-header">
-        <h1>DATAGOV Blog</h1>
-        <p>
-            Here you can find works in progress, exploratory notes, and thoughts on current
-            affairs in data infrastructures.
-        </p>
-    </div>
+        <!-- Blog header -->
+        <div class="blog-header">
+            <h1>DATAGOV Blog</h1>
+            <p>
+                Here you can find works in progress, exploratory notes, and thoughts on current
+                affairs in data infrastructures.
+            </p>
+        </div>
 
-    <!-- Blog post content -->
-    <div class="post-content">
-        <h2>Dissecting Digital ID(ea)s</h2>
+        <!-- Blog post content -->
+        <div class="post-content">
+            <h2>Dissecting Digital ID(ea)s</h2>
         <div class="meta">
             3 February 2026 · Mattéo Bard, Giulia Campaioli, Sruthi Vanguri · #DigitalID #DigitalMethods #DataInfrastructure #NetworkAnalysis #PolicyAnalysis #DiscourseAnalysis
         </div>
@@ -300,10 +339,15 @@
             For DATAGOV, this project reflects our broader interest in <strong>governance by data infrastructure </strong>, and in the need to make these systems visible, debatable, and accountable. 
             Digital IDs may promise efficiency, but the question that remains is <i>efficient for whom, and at what cost?</i>
         </p>
-
-        
     </div>
+            <!-- Images -->
+            <div class="post-images">
+                <img src="/images/DMI_WinterSchool_Report_1.jpg" alt="DMI Winter School Report image 1">
+                <img src="/images/DMI_WinterSchool_Report_2.jpg" alt="DMI Winter School Report image 2">
+            </div>
+        </div>
 
+    </div>
 </div>
 
 <!-- Footer -->
@@ -321,3 +365,7 @@
 
 </body>
 </html>
+
+
+
+
