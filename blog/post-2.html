@@ -2,19 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title of the blog post | DATAGOV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <title>Dissecting Digital ID(ea)s | DATAGOV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* ===============================
+           RESET & BASE
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #f1c232;
             color: #5C4A3E;
             font-family: 'Oswald', sans-serif;
             line-height: 1.7;
-            padding: 60px 20px;
+            padding-top: 160px;
+            padding-bottom: 120px;
         }
 
+        /* ===============================
+           SHARED PAGE WIDTH
+        ================================ */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(25px, 4vw, 60px);
+        }
+
+        /* ===============================
+           NAVIGATION
+        ================================ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #5A4635;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px clamp(25px, 4vw, 60px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .main-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===============================
+           POST LAYOUT
+        ================================ */
         .post {
             max-width: 800px;
             margin: 0 auto;
@@ -73,47 +142,255 @@
 
         .post-content p {
             margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ===============================
+           IMAGE ROW
+        ================================ */
+        .post-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .post-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .post-content p {
+                text-align: left;
+            }
+
+            .post-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===============================
+          POST IMAGES
+        ================================ */
+        .post-image-centered {
+    text-align: center;
+    margin: 2.5rem 0;
+    }
+
+        .post-image-centered img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .post-image-centered figcaption {
+            margin-top: 0.75rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ===============================
+           FOOTER
+        ================================ */
+        footer {
+            padding: 120px clamp(25px, 4vw, 60px);
+            border-top: 1px solid rgba(92, 74, 62, 0.1);
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        .logo-erc {
+            width: 140px;
+        }
+
+        .funding-text {
+            max-width: 400px;
+            font-size: 13px;
+            line-height: 1.45;
+            opacity: 0.9;
         }
     </style>
 </head>
+
 <body>
 
-<div class="post">
-
-    <!-- Breadcrumb navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <span>Blog</span>
-        <span>/</span>
-        <span>Title of the blog post</span>
-    </nav>
-
-    <!-- Blog header -->
-    <div class="blog-header">
-        <h1>DATAGOV Blog</h1>
-        <p>
-            Here you can find works in progress, exploratory notes, and thoughts on current affairs in data infrastructures
-        </p>
+<!-- Header -->
+<header class="site-header">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../index.html">DATAGOV</a>
+        </div>
+        <nav class="main-nav">
+            <a href="../blog.html">Blog</a>
+            <a href="../main_events.html">Events</a>
+            <a href="../subscribe.html">Contact</a>
+        </nav>
     </div>
+</header>
 
-    <!-- Blog post -->
-    <div class="post-content">
-        <h2>Title of the blog post</h2>
-        <div class="meta">
-            date of publication · name of writer · hashtag
+<!-- Page Content -->
+<div class="page-container">
+    <div class="post">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../blog.html">Blog</a>
+            <span>/</span>
+            <span>Dissecting Digital ID(ea)s</span>
+        </nav>
+
+        <!-- Blog header -->
+        <div class="blog-header">
+            <h1>DATAGOV Blog</h1>
+            <p>
+                Here you can find works in progress, exploratory notes, and thoughts on current
+                affairs in data infrastructures.
+            </p>
         </div>
 
-        <p>
-            This is where the main text of the blog post goes.
-        </p>
+        <!-- Blog post content -->
+        <div class="post-content">
+            <h2>Cartographies of Infrastructural Inequalities</h2>
+        <div class="meta">
+            12 February 2026 · Giulia Campaioli · #Infrastructure #Inequality #Brazil
+        </div>
+    <section class="post-content">
 
-        <p>
-            Additional paragraphs go here.
-        </p>
-    </div>
+    <p>
+         In November 2023, the Brazilian non-profit organization Coding Rights held a workshop on their project 
+         <a href="https://www.cartografiasdainternet.org/en">Map of Internet Territories</a> in Campinas, 
+        South-East Brazil. When I arrived at the Fazenda Roseira, where the workshop would be hosted, the chairs
+        had been placed in a circle and a <i>Cartography</i> poster was hanging on the wall. Mari Tamari, co-director
+        of Coding Rights, presented the organization. Since 2015, Coding Rights brings a transfeminist perspective to
+        digital technologies and their socio-environmental impact. Participants to the workshop were of different ages
+        and backgrounds, particularly from electrical engineering, communications, and political activism.
+    </p>
+    <div class="post-image-grid">
+    <figure>
+        <img src="/images/Giulia_blogpost_image_3.jpg" alt="Casa Fazenda Roseira, November 11, 2023, fieldwork photo, Giulia Campaioli. ">
+        <figcaption>
+            <i>Casa Fazenda Roseira, November 11, 2023, fieldwork photo, Giulia Campaioli.</i>
+        </figcaption>
+    </figure>
 
+    <figure>
+        <img src="/images/Giulia_blogpost_image_4.png" alt="Launch of the workshop on Map of Internet Territories by Coding Rights, Minha Campinas, and Casa Fazenda Roseira. Screenshot from Coding Rights’ instagram profile. Retrieved from: https://www.instagram.com/p/CzEvaJ3v0Jf/">
+        <figcaption>
+            <i>Launch of the workshop on Map of Internet Territories by Coding Rights, Minha Campinas, and Casa Fazenda Roseira. Screenshot from Coding Rights’ instagram profile. Retrieved from: https://www.instagram.com/p/CzEvaJ3v0Jf/</i>
+        </figcaption>
+    </figure>
 </div>
+
+    <p>
+   The <i>Cartografias da Internet</i> is a map of internet infrastructures, representing the material aspect of the 
+        internet, made of cables, servers, computers, antennas, etc. Some of the questions that inspired the project 
+        are: <i>Where is all the electronic waste being disposed of? Who benefits from connectivity, and who is left 
+            behind? What values are embedded in the algorithms? Who profits? Who is surveilled? What are the colonial 
+            relations that remain in digital technologies?</i> Users can navigate the map by clicking on graphic icons
+        to read in-depth information about each element mapped: extraction of mineral resources, internet connection 
+        ratio per inhabitant, connectivity infrastructures, labour, mainstream hardware and software producers, main 
+        destinations of electronic waste, highest concentration of servers, and consumption of water and energy in relation
+        to digital technologies.
+
+    </p>
+
+    <p>
+       The Map of Internet Territories makes digital colonialism visible, by showing how the infrastructures of the internet
+        are built upon the scaffolding of European settler colonialism. Digital colonialism, introduced by Brazilian scholars
+        <a href="https://www.boitempoeditorial.com.br/produto/colonialismo-digital-152312">Deivison Faustino and Walter Lippold</a>,
+        identifies the power relations between ‘Global North’ and ‘Global South’ in internet infrastructures – a continuation of
+        colonial relations <i>through</i> infrastructures, at the different stages of design, development, distribution, and waste
+        disposal. The map shows why “having bad connection” has rarely been a problem for me, as a European, but was mentioned by
+        more than one participant at the workshop. Europe has the highest concentration of internet connection ratio per habitant and
+        concentration of servers, similarly to the US – where mainstream hardware and software producers are based. Brazil is fully pink,
+        indicating it is a place where mineral resources are extracted; Gold and Tantalum in Minas Gerais, Goiàs and the north, where
+        Aluminum, and Copper are also extracted. The servers are concentrated in the South-East part of the country, an extension, 
+        one could say, of the inequalities between the northern and southern parts of Brazil. In this sense, I see Coding Rights’ 
+        Cartography of the Internet as a cartography of infrastructural inequalities.
+    </p>
+
+        <div class="post-image-grid">
+    <figure>
+        <img src="/images/Giulia_blogpost_image_1.jpg" alt="Two Maps of the Internet Territories placed on the floor at the workshop by Coding Rights, Minha Campinas, and Casa Fazenda Roseira. November 11, 2023. Fieldwork photo by Giulia Campaioli.">
+        <figcaption>
+            <i>Two Maps of the Internet Territories placed on the floor at the workshop by Coding Rights, Minha Campinas, and Casa Fazenda Roseira. November 11, 2023. Fieldwork photo by Giulia Campaioli.</i>
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="/images/Giulia_blogpost_image_2.jpg" alt="Description of second image">
+        <figcaption>
+            <i>The Map under the painting at Casa Fazenda Roseira, November 11, 2023, fieldwork photo, Giulia Campaioli.</i>
+        </figcaption>
+    </figure>
+</div>
+
+
+    <p>
+       We live in deeply unequal societies. Structural inequalities are the systematic and institutionalized disadvantages 
+        that certain social groups face relative to others regarding access to resources, opportunities, and rights. They
+        are rooted in policies, social norms, laws – and infrastructural choices. This is where the concept of infrastructural
+        inequalities becomes relevant. Infrastructural inequalities identify the structural forms of inequality that are 
+        reproduced by, and embedded within, infrastructures. These have already been <a href="https://infrastructuralinequalities.net/issue-1/")>recognized</a>
+        in relation to infrastructures for water, electricity, or transportation. Access to clean water and reliable electricity
+        is unevenly distributed, <a href="https://journals.sagepub.com/doi/10.1177/2399654419861110">for example
+        </a>: poorer neighborhoods often experience more precarious electricity supply and, consequently, less stable internet
+        connection. Likewise, as shown on a macro-level (though not necessarily exhaustively) by Coding Rights’ Cartography,
+        the infrastructures of the Internet are unevenly distributed.
+
+    </p>
+
+    <p>
+        Today, we witness a massive shift of public governance towards data-driven infrastructure. These 
+        <a href=https://datagovlab.net/index.html>data infrastructures
+        with regulatory functions</a> – such as digital identity systems, biometric
+        databases, education technologies and digital health -  increasingly mediate access to citizenship, mobility, and care.
+        As recounted by researcher  <a href=https://virginia-eubanks.com/automating-inequality/)>Virginia Eubanks</a>, 
+        algorithmic-driven decision-making systems are presented as objective, but they make mistakes, and those mistakes are
+        <a href=https://www.nist.gov/news-events/news/2019/12/nist-study-evaluates-effects-race-age-sex-face-recognition-software>patterned</a>. 
+        The three case studies analysed by Eubanks – state implementation of automated eligibility systems, coordinated databases,
+        and predictive risk models in the US - show that these mistakes disproportionally affect the poor through biased predictive
+        algorithms. These <a href=https://www.berghahnjournals.com/view/journals/cja/42/1/cja420108.xml>Regulatory Data Infrastructures
+        </a> – by shifting decision-making to biased algorithmic systems – contribute to <i>automating inequality</i>.
+
+    </p>
+
+    <p>
+         Beyond algorithmic bias, investigating infrastructural inequalities allows us to relocate inequality from the software to the
+        infrastructural level, including the material level of data infrastructures – the hardware components – as well as the institutional
+        arrangements – standards, policies and protocols that define the rules of functioning of regulatory data infrastructures. While these
+        systems are often promoted as efficiency-improving and security-enhancing solutions, I cannot help but wonder: for whom do these 
+        regulatory data infrastructures improve access to resources, opportunities and rights, and for whom do they (re)produce more hurdles
+        and challenges? In other words, do regulatory data infrastructures (re)produce (infra)structural inequalities?
+
+    </p>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-logos">
+        <img src="../logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+        <img src="../LOGO_ERC-FLAG_EU-no text.png" alt="ERC Logo" class="logo-erc">
+        <div class="funding-text">
+            Funded by the European Union. Views and opinions expressed are however those
+            of the author(s) only and do not necessarily reflect those of the European
+            Union or the ERC Executive Agency.
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
