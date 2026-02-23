@@ -2,19 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title of the blog post | DATAGOV</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    <title>A Europe That Does not Blink: Interoperability and the Automation of Suspicion | DATAGOV</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
+        /* ===============================
+           RESET & BASE
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #f1c232;
             color: #5C4A3E;
             font-family: 'Oswald', sans-serif;
             line-height: 1.7;
-            padding: 60px 20px;
+            padding-top: 160px;
+            padding-bottom: 120px;
         }
 
+        /* ===============================
+           SHARED PAGE WIDTH
+        ================================ */
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 clamp(25px, 4vw, 60px);
+        }
+
+        /* ===============================
+           NAVIGATION
+        ================================ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #5A4635;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 12px clamp(25px, 4vw, 60px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo a {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 32px;
+            letter-spacing: 2px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .main-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .main-nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* ===============================
+           POST LAYOUT
+        ================================ */
         .post {
             max-width: 800px;
             margin: 0 auto;
@@ -73,47 +142,245 @@
 
         .post-content p {
             margin-bottom: 20px;
+            text-align: justify;
+            text-justify: inter-word;
+        }
+
+        /* ===============================
+           IMAGE ROW
+        ================================ */
+        .post-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .post-images img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 700px) {
+            .post-content p {
+                text-align: left;
+            }
+
+            .post-images {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===============================
+          POST IMAGES
+        ================================ */
+        .post-image-centered {
+    text-align: center;
+    margin: 2.5rem 0;
+    }
+
+        .post-image-centered img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .post-image-centered figcaption {
+            margin-top: 0.75rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Make all images responsive */
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Optional: limit max size further if needed */
+    .post-content img {
+      max-width: 800px; /* or whatever width fits your layout better */
+    }
+        .post-image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.post-image-grid img {
+  max-width: 100%;
+  height: auto;
+}
+
+        /* ===============================
+           FOOTER
+        ================================ */
+        footer {
+            padding: 120px clamp(25px, 4vw, 60px);
+            border-top: 1px solid rgba(92, 74, 62, 0.1);
+        }
+
+        .footer-logos {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            width: 200px;
+        }
+
+        .logo-erc {
+            width: 140px;
+        }
+
+        .funding-text {
+            max-width: 400px;
+            font-size: 13px;
+            line-height: 1.45;
+            opacity: 0.9;
         }
     </style>
 </head>
+
 <body>
 
-<div class="post">
-
-    <!-- Breadcrumb navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Home</a>
-        <span>/</span>
-        <span>Blog</span>
-        <span>/</span>
-        <span>Title of the blog post</span>
-    </nav>
-
-    <!-- Blog header -->
-    <div class="blog-header">
-        <h1>DATAGOV Blog</h1>
-        <p>
-            Here you can find works in progress, exploratory notes, and thoughts on current affairs in data infrastructures
-        </p>
+<!-- Header -->
+<header class="site-header">
+    <div class="nav-container">
+        <div class="nav-logo">
+            <a href="../index.html">DATAGOV</a>
+        </div>
+        <nav class="main-nav">
+            <a href="../blog.html">Blog</a>
+            <a href="../main_events.html">Events</a>
+            <a href="../subscribe.html">Contact</a>
+        </nav>
     </div>
+</header>
 
-    <!-- Blog post -->
-    <div class="post-content">
-        <h2>Title of the blog post</h2>
-        <div class="meta">
-            date of publication · name of writer · hashtag
+<!-- Page Content -->
+<div class="page-container">
+    <div class="post">
+
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+            <a href="../index.html">Home</a>
+            <span>/</span>
+            <a href="../blog.html">Blog</a>
+            <span>/</span>
+            <span>Dissecting Digital ID(ea)s</span>
+        </nav>
+
+        <!-- Blog header -->
+        <div class="blog-header">
+            <h1>DATAGOV Blog</h1>
+            <p>
+                Here you can find works in progress, exploratory notes, and thoughts on current
+                affairs in data infrastructures.
+            </p>
         </div>
 
-        <p>
-            This is where the main text of the blog post goes.
-        </p>
+        <!-- Blog post content -->
+        <div class="post-content">
+            <h2>A Europe That Does not Blink: Interoperability and the Automation of Suspicion</h2>
+        <div class="meta">
+            18 February 2026 · Mattéo Bard · #EU #Interoperability #Surveillance #Automation
+        </div>
+    <section class="post-content">
 
-        <p>
-            Additional paragraphs go here.
-        </p>
+    <p>
+        When people joke about mass surveillance, they usually think of NSA intelligence officers listening in on your phone calls.
+        But that image is outdated. Today’s surveillance system do not need to spy on suspects individually. It records everyone, 
+        all the time. It passively collects data about everyone, indiscriminately, so that when someone becomes “of interest,” all
+        that remains is to search. But contemporary data infrastructures go one step further. Through algorithmic profiling and 
+        risk-scoring systems, they automate the process of deciding when someone becomes “of interest.” Surveillance now becomes permanent
+        and automated. 
+    </p>
+
+    <p>
+        Unfortunately, this is a global trend. With our world governed more and more through data, surveillance is no longer something done
+        to criminals or at borders. Instead, it becomes a background condition of every person’s daily lives. And the EU is no exception.
+    </p>
+
+    <p>
+       I have heard many people saying “oh but that’s fine, as long as you have nothing to hide, then you have no reason to be scared.” But
+        that is not the point, this form of surveillance changes our fundamental rights as citizens. Privacy stops being a default but instead
+        is granted conditionally by the algorithms that process your data as ‘not suspicious’. Innocence is no longer a right you have which 
+        the state is obliged to uphold to you. It becomes a technical status that needs to be verified through data before any
+        <a href=“https://research-information.bris.ac.uk/en/publications/the-technopolitics-of-crimmigration-control-targeting-bodies-and-/”>
+        ‘obligation’ is exercised </a>. In the simplest terms, we are no longer innocent until proven guilty, we are suspicious until calculated
+        innocent. So, it is not about whether you have something to hide, it is about what you have the right to as a citizen.
+    </p>
+
+    <p>
+        Let me explain further with the case of policing and migration databases in the EU.
+        <a href=“https://www.tandfonline.com/doi/abs/10.1080/14650045.2020.1830764”>eu-LISA </a> was created in and was designed to manage all 
+        the security databases in the EU. The European Commission assigned it the role to maintain digital policing systems like the European arrest
+        warrant, migration databases like VISA and border crossing tracking. eu-LISA’s goal was simple; make sure these systems work technically and
+        then Europe will have better access to information about criminals, illegal border crossers, and potential terrorists. Then Europe will be safe.
+    </p>
+
+    <p>
+        These databases were created separately. Each system operated under a different legal regime, with different access rules and purposes.
+        This fragmentation limited how data could be reused and helped prevent information collected for one reason, like applying for a visa,
+        from automatically becoming policing intelligence. Their separation was not an oversight but a safeguard.
+    </p>
+
+    <p>
+        From a rights perspective, fragmentation matters. It reduced the risk that people would be continuously tracked across domains of life, preventing
+        continuous surveillance of citizens and people more generally.
+    </p>
+
+    <p>
+        But big data technologies do not work statically. The technologies create a demand for more data by internalizing an operational logic of ‘more data
+        is better.’ So, from this perspective, experts in charge of implementing these technologies at eu-LISA start to see fragmentation increasingly as a
+        problem. Fragmentation was then increasingly <a href=“https://www.tandfonline.com/doi/abs/10.1080/14650045.2020.1830764”>framed as a security risk</a>:
+        it enabled “identity fraud,” and allowed people to move across Schengen without being fully visible to authorities. The same person could appear multiple
+        times across systems without being recognized as the same individual. A person could be registered as an asylum seeker, a visa applicant, or a suspect all
+        at the same time without the systems automatically linking their identities.
+    </p>
+
+    <p>
+        The EU adopted a technical ‘fix’ to the problem: link databases at the level of the body. Fingerprints and facial images were framed as neutral, objective
+        identifiers that are more reliable than names or document. By using biometrics, the EU created a <a href=“https://journals.sagepub.com/doi/10.1177/0967010616650226”>
+            supra-layer with the Central Identity Repository (CIR) </a> linking migration, policing, and border control data together without formally merging the databases
+        themselves. The legal separation remains on paper, but biometric matching quietly bridges the databases in practice.
+   </p> 
+        
+    <p>
+        What emerges is not simply connected databases, but a unified assessment infrastructure. Instead of checking you at specific institutional moments, the system now
+        continuously evaluates your identity across domains. This is why the old image of the NSA agent listening to phone calls is misleading. Surveillance today is not
+        primarily about someone watching you. It is about data infrastructures that silently talk to each other and sort. No one needs to suspect you personally. 
+        The interoperable system continuously evaluates whether your data is coherent, whether your biometric markers match, whether your profile raises anomalies.
+        Suspicion is thus no longer an event, it is a continuous measure.
+    </p>
+
+    <p>
+        And this is the real transformation. Privacy is no longer the background condition of citizenship; it becomes something you retain as long as your data behaves.
+        Innocence is no longer presumed, it is computationally confirmed. Rights are no longer exercised first and restricted later; they are conditionally activated 
+        through technical verification. The question is therefore not whether you have something to hide. The question is whether citizenship itself is being rewritten 
+        as a continuous performance of calculable trustworthiness.
+    </p>
+
+    </section>
+<!-- Footer -->
+<footer>
+    <div class="footer-logos">
+        <img src="../logo-UvA.svg" alt="University of Amsterdam Logo" class="logo">
+        <img src="../LOGO_ERC-FLAG_EU-no text.png" alt="ERC Logo" class="logo-erc">
+        <div class="funding-text">
+            Funded by the European Union. Views and opinions expressed are however those
+            of the author(s) only and do not necessarily reflect those of the European
+            Union or the ERC Executive Agency.
+        </div>
     </div>
-
-</div>
+</footer>
 
 </body>
 </html>
